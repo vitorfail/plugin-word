@@ -23,25 +23,25 @@
             </div>
             <div class="certificate_display">
                 <div id="certificate_info">
-                    <div style="--i:1s;" class="dados_certificate">
-                        <div class="input">
-                            <input id="cor_name" class="info" placeholder="Name"/>
+                    <div id="cor_name" style="--i:1s;" class="dados_certificate">
+                        <div  class="input">
+                            <input class="info" placeholder="Name"/>
                             <p>Name</p>
                         </div>
                         <input onchange="cores('cor_name',this)" class="color" type="color"/>
                         <button class="check" id="aparece">V</button>
                     </div>
-                    <div style="--i:2s;" class="dados_certificate">
+                    <div id="cor_director" style="--i:2s;" class="dados_certificate">
                         <div class="input">
-                            <input id="cor_director" class="info" placeholder="Director"/>
+                            <input  class="info" placeholder="Director"/>
                             <p>Director</p>
                         </div>
                         <input onchange="cores('cor_director', this)" class="color" type="color"/>
                         <button class="check" id="aparece">V</button>
                     </div>
-                    <div style="--i:3s;" class="dados_certificate">
+                    <div id="cor_descrepction" style="--i:3s;" class="dados_certificate">
                         <div class="input">
-                            <input id="cor_descrepction" class="info" placeholder="Descrepction"/>
+                            <input  class="info" placeholder="Descrepction"/>
                             <p>Description</p>
                         </div>
                         <input onchange="cores('cor_descrepction', this)" class="color" type="color"/>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="certificate_result">
-
+                    <p>Result</p>
                 </div>
             </div>
         <div>
@@ -117,6 +117,9 @@ startCarousel();
         height:auto;
     }
     .certificate_center{
+        box-shadow:0px 0px 7px rgb(0,0,0,0.5);
+        border-radius:20px;
+        border:2px solid rgb(0,0,0,0.2);
         display:flex;
         justify-content:center;
         align-items:center;
@@ -132,12 +135,14 @@ startCarousel();
         width:100%;
     }
     .certificate_display{
+        height:190px;
+        width: 100%;
         display:flex;
         justify-content:center;
         align-items:center;
     }
     #certificate_info{
-        width:100%;
+        width:50%;
         display:flex;
         justify-content:center;
         align-items:center;
@@ -148,41 +153,30 @@ startCarousel();
         animation: dados 0.5s linear calc(calc(var(--i)*2)/17) forwards;
     }
     .dados_certificate{
-        margin-top:20px;
-        opacity:0;
-        height:40px;
-        width:100%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
-    input[type="color"]::-webkit-color-swatch {
-        outline:none;
-        border:none;
-        border-radius: 50%;
-        color:transparent;
-        padding: 0;
-        }
+        margin-top: 20px;
+    opacity: 0;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;    
+}
     .dados_certificate .color{
-        box-shadow:0px 0px 12px rgb(0,0,0,0.4);
-        -webkit-appearance: none; /* Remove the default styling in WebKit browsers */
-        appearance: none;
         border:none;
         outline:none;
-        height: 30px; /* Ocupa 100% da altura da viewport */
-        width: 35px;         
-        border-radius:50%;
+        height: 34px; /* Ocupa 100% da altura da viewport */
+        width: 31px;         
         background:none;
     }
     .dados_certificate .info{
+        color:inherit;
         border:none;
-        border-bottom:2px solid green;
+        border-bottom:2px solid currentcolor;
         background:none;
     } 
     .dados_certificate .check{
-        border-radius:50%;
-        height: 30px; /* Ocupa 100% da altura da viewport */
-        width: 35px;         
+        height: 27px; /* Ocupa 100% da altura da viewport */
+        width: 27px;         
         color:white;
     }
     .dados_certificate #aparece{
@@ -192,44 +186,44 @@ startCarousel();
         background:red;
     }
     .input{
+        height:93px;
         align-items: flex-start;
         transition: all ease-in-out 0.2s;
         animation: input alternate 0.7s;
         display: flex;
-        width: 100%;
+        width: 60%;
         flex-direction: column;
     }
     .input p{
         transition: all ease-in-out 0.2s;
         font-weight: 500;
-        color: rgba(150, 150, 150, 0.753);
+        color: inherit;
         transition: all ease 0.2s;
         pointer-events: none;
-        margin-left: 12px;
-        margin-top: -25px;
+        transform: translate(12px, -35px);
     }
     .input input{
-
-        height: 35px;
+        width: 90%;
+        height: 95px;
         transition: all ease-in-out 0.2s;
         border: 1px solid #cccccc;
         border-radius: 4px;
-        font-size: 20px;
+        font-size: 14px;
     }
     .input input::placeholder{
         color: transparent;
     }
     .input input:focus{
+        height:95px;
         border: none;
-        outline:2px solid green; 
+        font-size:14px;
+        outline:2px solid currentcolor; 
     }
     .input input:focus + p, .input input:not(:placeholder-shown)+p{
         background: white;
-        color: black;
-        margin-top: -49px;
-        margin-left: -1px;
-        font-size: 15px;
-        color:green;
+        color: inherit;
+        transform: translate(1px,-71px);
+        font-size: 14px;
     }
     .input input:not(:placeholder-shown){
         background: rgba(71, 71, 71, 0.24);
@@ -251,6 +245,15 @@ startCarousel();
     .carousel-item img {
         width: 100%;
         height: auto;
+    }
+    .certificate_result{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border-radius:20px;
+        background:rgb(0,0,0,0.2);
+        width: 50%;
+        height:100%;
     }
     @keyframes dados {
         from{
